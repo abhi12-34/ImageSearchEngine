@@ -1,0 +1,237 @@
+
+@font-face {
+    font-family: "oupsHead";
+    src: url("fonts/oups/Oups_Outline.otf") format("opentype");
+}
+@font-face {
+    font-family: "spookSector";
+    src: url("fonts/spook-sector/Spook\ Sector.otf") format("opentype");
+}
+
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: "spookSector";
+}
+
+
+body{
+    height: 100%;
+    width: 100%;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    background-size: 400% 400%;  /* background ki size bdha rhe taki animation move krte dikhe..*/
+    background: linear-gradient(135deg, #0f0c29, #302b63, #6a0572);
+    animation: bc 5s ease-in-out infinite;
+    background-size: 400% 400%;
+    
+}
+    
+@keyframes bc {
+    0%{
+        background-position: 0% 50%;
+    }
+    50%{
+        background-position: 100% 50%;
+    }
+    100%{
+        background-position: 0% 50%;
+    }
+}
+    
+
+h1{
+    font-family: oupsHead;
+    color: greenyellow;
+    text-shadow: 0.5px 2px 10px #f90202;
+    
+}
+
+form{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    height: fit-content;
+    
+}
+
+form input{
+    width: 40%;
+    border-radius: 20px;
+    height: 4vh;
+    /* color: white; */
+    
+    padding: 10px;
+    outline: none;
+
+}
+  
+
+
+form button{
+    border-radius: 50%;
+    width: 50px;
+    outline: none;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden; /* animation k overflow ko hide kr dega sirf button k andr ka dikhega..*/
+    background: linear-gradient(45deg, #6a11cb, #2575fc);
+    transition: 0.3s ease-in-out;
+    box-shadow: 0 0 10px rgba(0,0,0,0.4);
+}
+
+form button:hover{
+    transform: scale(1.1);
+    box-shadow: 0 0 25px #2575fc , 0 0 40px #6a11cb;  /* ek element pr 2 box sahdow property..*/
+
+}
+
+#search_btn:hover::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: conic-gradient(#ffffff44 0deg , transparent 120deg);
+    animation: rotate 2s linear infinite;
+}
+
+
+
+@keyframes rotate {
+    to{
+        transform: rotate(360deg);
+    }
+}
+
+/* #search_btn:hover .star{
+    display: block;
+    filter: drop-shadow(0px 0px 10px #fffdef);
+} */
+
+#searchResult{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 15px;
+    margin-top: 20px;
+    margin: 20px 15px;
+}
+
+#searchResult img{
+    width: 100%;
+    height: 30vh;
+    border-radius: 15px;
+    object-fit: cover;
+    padding: 0px 10px;
+    margin: 0px 5px;
+    z-index: 1px;
+    
+
+}
+
+#errorMsg{
+    color: red;
+}
+
+#invalidError{
+    color: red;
+}
+
+ #loader{
+    display: none;
+    border: 8px solid #f3f3f3;
+    border-top: 8px solid #3498db;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s ease-in-out infinite;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 20px;
+    
+ }
+
+ @keyframes spin {
+    to{
+        transform: rotate(360deg);
+    }
+ }
+
+
+#btns {
+    height: 5vh;
+    opacity: 0;
+    
+}
+
+#btns button {
+    font-family: fantasy;
+    outline: none;
+    background-color: rgba(0, 0, 255, 0.418);
+    width: 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 15px 0px;
+}
+
+#btns button:hover{
+    transform: scale(1.05);
+    background-color: red;
+    transition: transform ease-in 0.4s , background-color ease-in 0.4s ;
+    
+}
+@media (max-width: 500px) {
+    html{
+        font-size: 14px;
+    }   
+
+    #searchResult{
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+      
+    }
+
+    form input{
+        width: 60%;
+    }
+
+    form button{
+        width: 40px;
+        font-size: 11px;
+    }
+
+    #input::placeholder{
+        font-size: 14px;
+    }
+        
+       
+}
+
+@media (max-width: 360px) {
+    html{
+        font-size: 12px;
+    }   
+
+    #searchResult{
+        display: grid;
+        grid-template-columns: repeat(1,1fr);
+    }
+        
+    #input::placeholder{
+        font-size: 12px;
+    }  
+
+    #searchResult img{
+        height: 25vh;
+    }
+    
+
+}
+    
+    
