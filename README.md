@@ -15,3 +15,4 @@
 💻 This project helped me practice DOM manipulation, API integration & front-end design.
 
 ![image alt](https://github.com/abhi12-34/ImageSearchEngine/blob/main/Screenshot%202025-10-08%20221744.png?raw=true)
+![image alt](https://github.com/abhi12-34/ImageSearchEngine/blob/main/Screenshot%202025-10-08%20221909.png?raw=true)
